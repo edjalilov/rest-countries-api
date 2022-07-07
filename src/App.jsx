@@ -15,7 +15,12 @@ function App() {
       <Header />
       <Main>
         <Routes>
-          <Route path="/" element={<HomePage countries={countries} setCountries={setCountries} />}  />
+          <Route
+            path="/"
+            element={
+              <HomePage countries={countries} setCountries={setCountries} />
+            }
+          />
           <Route path="/country/:name" element={<Details />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

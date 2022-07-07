@@ -3,7 +3,11 @@ import styled from "styled-components";
 const Wrapper = styled.article`
   border-radius: 8px;
   background-color: var(--color-ui-base);
-  box-shadow: var(--shadow);
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow);
+  }
+  transition: 0.3s;
   cursor: pointer;
   overflow: hidden;
 `;

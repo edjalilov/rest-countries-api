@@ -11,13 +11,18 @@ export const CustomSelect = styled(Select).attrs({
       borderRadius: "5px",
       padding: "0.25rem",
       border: "none",
-      boxShadow: "var(--shadow)",
       height: "50px",
+      cursor: "pointer",
+      transition: "0.3s",
+      boxShadow: "var(--shadow)",
     }),
     option: (provided, state) => ({
       ...provided,
       cursor: "pointer",
       color: "var(--color-text)",
+      "&:hover": {
+        backgroundColor: "var(--color-bg)",
+      },
       backgroundColor: state.isSelected
         ? "var(--color-bg)"
         : "var(--color-ui-base)",
@@ -28,7 +33,10 @@ export const CustomSelect = styled(Select).attrs({
   border: none;
   border-radius: 8px;
   & > * {
-    box-shadow: var(--shadow);
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    transition: 0.3s;
   }
   & input {
     padding-left: 0.25rem;

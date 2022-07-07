@@ -8,6 +8,7 @@ const InputContainer = styled.label`
   align-items: center;
   border-radius: 8px;
   box-shadow: var(--shadow);
+  transition: 0.3s;
   width: 100%;
   margin-bottom: 1rem;
 
@@ -22,6 +23,9 @@ const Input = styled.input.attrs({
   placeholder: "Search for a country...",
   color: "var(--color-text)",
 })`
+  ::placeholder {
+    color: var(--color-text);
+  }
   margin-left: 2rem;
   border: none;
   outline: none;

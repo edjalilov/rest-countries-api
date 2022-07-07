@@ -1,14 +1,19 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { IoArrowBack } from "react-icons/io5";
+import { IoChevronBackOutline } from "react-icons/io5";
 import { searchByCountry } from "../config";
 import axios from "axios";
 import styled from "styled-components";
+import { Info } from "../components/Info";
+import { ThreeDots } from "react-loader-spinner";
 
 const Button = styled.button`
   padding: 0 1rem;
   background-color: var(--color-ui-base);
-  box-shadow: var(--shadow);
+  &:hover {
+    box-shadow: var(--shadow);
+  }
+  transition: 0.3s;
   line-height: 2.5;
   border-radius: 8px;
   border: none;
@@ -19,23 +24,36 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+const Loader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+`;
+
 export const Details = () => {
+  const [country, setCountry] = useState(null);
   const { name } = useParams();
   const navigate = useNavigate();
-  const [counrty, setCountry] = useState("");
 
-  console.log(counrty);
+  console.log(country);
 
   useEffect(() => {
     axios.get(searchByCountry(name)).then(({ data }) => setCountry(data[0]));
   }, [name]);
 
   return (
-    <div>
+    <>
       <Button onClick={() => navigate(-1)}>
-        <IoArrowBack /> Back
+        <IoChevronBackOutline /> Back
       </Button>
-      Details {name}
-    </div>
+      {country ? (
+        <Info navigate={navigate} {...country} />
+      ) : (
+        <Loader>
+          <ThreeDots height="80" width="80" color="grey" ariaLabel="loading" />
+        </Loader>
+      )}
+    </>
   );
 };

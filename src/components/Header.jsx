@@ -20,7 +20,7 @@ const Title = styled(Link).attrs({
   to: "/",
 })`
   color: var(--color-text);
-  font-size: 14px;
+  font-size: 18px;
   text-decoration: none;
   font-weight: 800;
 `;
@@ -37,13 +37,14 @@ const ModeSwitcher = styled.div`
 `;
 
 export const Header = () => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "dark");
 
   const changeTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
   };
 
   useEffect(() => {
+    localStorage.setItem("theme", theme);
     document.body.setAttribute("data-theme", theme);
   }, [theme]);
 
@@ -51,7 +52,7 @@ export const Header = () => {
     <HeaderEl>
       <Container>
         <Wrapper>
-          <Title>Where us the world?</Title>
+          <Title>Countries of The World</Title>
           <ModeSwitcher onClick={changeTheme}>
             {theme === "light" ? (
               <IoMoonOutline size="16px" />
@@ -59,7 +60,9 @@ export const Header = () => {
               <IoMoon size="16px" />
             )}
 
-            <span style={{ marginLeft: "0.75rem" }}>{theme} Theme</span>
+            <span style={{ marginLeft: "0.75rem", fontSize: "16px" }}>
+              {theme} Theme
+            </span>
           </ModeSwitcher>
         </Wrapper>
       </Container>
