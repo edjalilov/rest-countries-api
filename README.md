@@ -9,7 +9,7 @@
 - Click through to the border countries on the detail page.
 - Toggle the color scheme between light and dark mode.
 
-Demo. [Link](https://rest-countries-api-edjalilov.vercel.app/)
+Demo. [https://rest-countries-api-edjalilov.vercel.app/](https://rest-countries-api-edjalilov.vercel.app/)
 
 ![preview img](/preview.png)
 
