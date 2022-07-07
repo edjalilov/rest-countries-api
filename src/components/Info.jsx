@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-import styled from "styled-components";
 import { filterByCode } from "../config";
+import axios from "axios";
+import styled from "styled-components";
 
 const Wrapper = styled.section`
   margin-top: 3rem;

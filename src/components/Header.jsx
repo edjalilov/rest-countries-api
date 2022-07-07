@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
 import { IoMoon, IoMoonOutline } from "react-icons/io5";
 import { Container } from "./Container";
+import styled from "styled-components";
 
 const HeaderEl = styled.header`
   box-shadow: var(--shadow);
@@ -23,6 +23,17 @@ const Title = styled(Link).attrs({
   font-size: 18px;
   text-decoration: none;
   font-weight: 800;
+  @media (max-width: 575px) {
+    font-size: 14px;
+  }
+`;
+
+const Span = styled.span`
+  margin-left: 0.75rem;
+  font-size: 16px;
+  @media (max-width: 575px) {
+    font-size: 14px;
+  }
 `;
 
 const ModeSwitcher = styled.div`
@@ -60,9 +71,7 @@ export const Header = () => {
               <IoMoon size="16px" />
             )}
 
-            <span style={{ marginLeft: "0.75rem", fontSize: "16px" }}>
-              {theme} Theme
-            </span>
+            <Span>{theme} Theme</Span>
           </ModeSwitcher>
         </Wrapper>
       </Container>

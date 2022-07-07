@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { IoChevronBackOutline } from "react-icons/io5";
 import { searchByCountry } from "../config";
-import axios from "axios";
-import styled from "styled-components";
 import { Info } from "../components/Info";
 import { ThreeDots } from "react-loader-spinner";
+import axios from "axios";
+import styled from "styled-components";
 
 const Button = styled.button`
   padding: 0 1rem;
@@ -35,8 +35,6 @@ export const Details = () => {
   const [country, setCountry] = useState(null);
   const { name } = useParams();
   const navigate = useNavigate();
-
-  console.log(country);
 
   useEffect(() => {
     axios.get(searchByCountry(name)).then(({ data }) => setCountry(data[0]));

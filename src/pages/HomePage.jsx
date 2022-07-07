@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { ThreeDots } from "react-loader-spinner";
+import axios from "axios";
 import styled from "styled-components";
 
 import { Controls } from "../components/Controls";
