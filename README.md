@@ -12,6 +12,3 @@
 Demo. [https://rest-countries-api-edjalilov.vercel.app/](https://rest-countries-api-edjalilov.vercel.app/)
 
 ![preview img](/preview.png)
-
-
-
